@@ -7,6 +7,8 @@ description: Generate images using Google Gemini API. Supports text-to-image wit
 
 Generate images using Google Gemini API (Gemini 2.0 Flash).
 
+**Alternative**: For free usage with visual input and multi-turn conversations, see `baoyu-danger-gemini-web` (reverse-engineered Web API).
+
 ## Usage
 
 ```bash
