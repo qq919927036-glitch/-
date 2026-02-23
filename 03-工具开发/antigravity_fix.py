@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""
+修复版 antigravity - 使用 macOS open 命令打开浏览器
+"""
+import subprocess
+import hashlib
+
+def open_browser(url):
+    """使用 macOS open 命令打开浏览器"""
+    subprocess.run(['open', url], check=True)
+    print(f"已打开浏览器: {url}")
+
+# 打开 xkcd 漫画
+open_browser("https://xkcd.com/353/")
+
+def geohash(latitude, longitude, datedow):
+    '''Compute geohash() using the Munroe algorithm.
+
+    >>> geohash(37.421542, -122.085589, b'2005-05-26-10458.68')
+    37.857713 -122.544543
+
+    '''
+    # https://xkcd.com/426/
+    h = hashlib.md5(datedow, usedforsecurity=False).hexdigest()
+    p, q = [('%f' % float.fromhex('0.' + x)) for x in (h[:16], h[16:32])]
+    print('%d%s %d%s' % (latitude, p[1:], longitude, q[1:]))
+
+if __name__ == "__main__":
+    geohash(37.421542, -122.085589, b'2005-05-26-10458.68')

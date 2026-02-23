@@ -24,3 +24,6 @@ vendor/
 
 # 其他
 .git/
+
+# 独立的 git 仓库
+02-八字工作流/知识库/bazi-agent/

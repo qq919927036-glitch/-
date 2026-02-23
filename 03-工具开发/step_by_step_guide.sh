@@ -1,0 +1,111 @@
+#!/bin/bash
+# Antigravity 浏览器问题 - 逐步解决指南
+
+echo "🎯 Antigravity 浏览器问题解决"
+echo "================================"
+echo ""
+
+echo "📋 当前问题诊断："
+echo "----------------------------"
+echo "❌ Clash TUN 模式: 正在运行"
+echo "❌ 系统代理: 未启用"
+echo "⚠️  结果: Antigravity 无法正常工作"
+echo ""
+
+echo "================================"
+echo "📝 请按以下步骤操作："
+echo "================================"
+echo ""
+
+echo "【步骤 1】打开 Clash Verge"
+echo "----------------------------"
+echo "在 Launchpad 或应用程序文件夹中找到『Clash Verge』并打开"
+echo ""
+read -p "按回车继续..."
+
+echo ""
+echo "【步骤 2】关闭 TUN 模式"
+echo "----------------------------"
+echo "在 Clash Verge 主界面中："
+echo "  1. 找到『TUN 模式』开关（通常在左侧或顶部）"
+echo "  2. 点击关闭它"
+echo "  3. 等待 2-3 秒"
+echo ""
+echo "✅ 确认: TUN 模式图标应该变为灰色或关闭状态"
+echo ""
+read -p "按回车继续..."
+
+echo ""
+echo "【步骤 3】启用系统代理"
+echo "----------------------------"
+echo "在 Clash Verge 主界面中："
+echo "  1. 找到『系统代理』或『System Proxy』开关"
+echo "  2. 点击启用它"
+echo "  3. 确认端口显示为 7897"
+echo ""
+echo "✅ 确认: 系统代理图标应该变为高亮或开启状态"
+echo ""
+read -p "按回车继续..."
+
+echo ""
+echo "【步骤 4】配置代理绕过规则"
+echo "----------------------------"
+echo "在 Clash Verge 中："
+echo "  1. 点击『偏好设置』或『Settings』"
+echo "  2. 找到『系统代理绕过』或『Bypass』设置"
+echo "  3. 添加以下内容："
+echo ""
+echo "     localhost"
+echo "     127.0.0.1"
+echo "     *.local"
+echo ""
+echo "  4. 保存设置"
+echo ""
+read -p "按回�继续..."
+
+echo ""
+echo "【步骤 5】验证配置"
+echo "----------------------------"
+sleep 2
+
+echo ""
+echo "检查系统代理状态..."
+if scutil --proxy | grep -q "HTTPEnable : 1"; then
+    echo "✅ 系统代理已启用"
+else
+    echo "⚠️  系统代理似乎未启用，请检查 Clash Verge"
+fi
+
+echo ""
+echo "检查 TUN 模式状态..."
+if ifconfig | grep -q "utun1024"; then
+    echo "❌ TUN 模式仍在运行！请确保已关闭"
+else
+    echo "✅ TUN 模式已关闭"
+fi
+
+echo ""
+echo "【步骤 6】测试 Antigravity"
+echo "----------------------------"
+echo ""
+echo "现在请："
+echo "  1. 切换到 Antigravity 应用"
+echo "  2. 执行一个需要浏览器的操作"
+echo "     例如：『打开推特』或『搜索今天天气』"
+echo "  3. 观察 Chrome 是否自动启动"
+echo "  4. 检查是否还有 502 错误"
+echo ""
+
+echo "================================"
+echo "✅ 配置完成！"
+echo "================================"
+echo ""
+echo "如果 Antigravity 现在可以正常工作，太好了！🎉"
+echo ""
+echo "如果仍然遇到问题，可能需要："
+echo "  1. 重启 Antigravity 应用"
+echo "  2. 或者完全重启电脑"
+echo ""
+echo "需要帮助？运行："
+echo "  bash /Users/lixun/Claude-Code/05-临时任务/diagnose_all.sh"
+echo ""
